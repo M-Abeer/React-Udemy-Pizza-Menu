@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap");
 
 * {
   margin: 0;
@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: 'Roboto Mono', sans-serif;
+  font-family: "Roboto Mono", sans-serif;
   color: #252525;
   font-weight: 400;
   background-color: #f7f2e9;
@@ -37,7 +37,7 @@ body {
   align-self: stretch;
 }
 
-.header h1 {
+.heading {
   /* Non-accessible color */
   color: #edc84b;
   /* color: #af8602; */
@@ -52,10 +52,10 @@ body {
   display: block;
 }
 
-.header h1::before,
-.header h1::after {
+.heading::before,
+.heading::after {
   display: block;
-  content: '';
+  content: "";
   height: 3px;
   width: 12rem;
   background-color: #edc84b;
@@ -63,11 +63,11 @@ body {
   top: calc(50% - 1px);
 }
 
-.header h1::before {
+.heading::before {
   left: 0;
 }
 
-.header h1::after {
+.heading::after {
   right: 0;
 }
 
