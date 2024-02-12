@@ -4,6 +4,7 @@ import "./index.css";
 
 const pizzaData = [
   {
+    key: 1,
     name: "Focaccia",
     ingredients: "Bread with italian olive oil and rosemary",
     price: 6,
@@ -11,6 +12,7 @@ const pizzaData = [
     soldOut: false,
   },
   {
+    key: 2,
     name: "Pizza Margherita",
     ingredients: "Tomato and mozarella",
     price: 10,
@@ -18,6 +20,7 @@ const pizzaData = [
     soldOut: false,
   },
   {
+    key: 3,
     name: "Pizza Spinaci",
     ingredients: "Tomato, mozarella, spinach, and ricotta cheese",
     price: 12,
@@ -25,6 +28,7 @@ const pizzaData = [
     soldOut: false,
   },
   {
+    key: 4,
     name: "Pizza Funghi",
     ingredients: "Tomato, mozarella, mushrooms, and onion",
     price: 12,
@@ -32,6 +36,7 @@ const pizzaData = [
     soldOut: false,
   },
   {
+    key: 5,
     name: "Pizza Salamino",
     ingredients: "Tomato, mozarella, and pepperoni",
     price: 15,
@@ -39,6 +44,7 @@ const pizzaData = [
     soldOut: true,
   },
   {
+    key: 6,
     name: "Pizza Prosciutto",
     ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
     price: 18,
@@ -70,61 +76,61 @@ function Header() {
   );
 }
 function Menu() {
+  const pizzas = pizzaData;
+  // const pizzas = [];
+  //we check num bkz empty array is not falsy value
+  const numPizza = pizzas.length;
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <Pizza
-        name="Pizza Prosciutto"
-        ing="Tomato, mozarella, ham, aragula, and burrata cheese"
-        price="18"
-        img="pizzas/prosciutto.jpg"
-        sold="false"
-      />
-      <Pizza
-        name="Pizza Prosciutto"
-        ing="Tomato, mozarella, ham, aragula, and burrata cheese"
-        price="18"
-        img="pizzas/prosciutto.jpg"
-        sold="false"
-      />
-      <Pizza
-        name="Pizza Prosciutto"
-        ing="Tomato, mozarella, ham, aragula, and burrata cheese"
-        price="18"
-        img="pizzas/prosciutto.jpg"
-        sold="false"
-      />
+      {numPizza > 0 && (
+        <ul className="pizzas">
+          {pizzaData.map((data) => {
+            return (
+              <Pizza
+                key={data.key}
+                name={data.name}
+                ing={data.ingredients}
+                price={data.price}
+                img={data.photoName}
+                sold={data.soldOut}
+              />
+            );
+          })}
+        </ul>
+      )}
     </main>
   );
 }
 
 function Pizza(props) {
-  console.log(props);
   return (
-    <div className="pizza">
+    <li className="pizza">
       <img src={props.img} alt="Error" />
       <div>
         <h3>{props.name}</h3>
         <p>{props.ing}</p>
         <span>{props.price}</span>
       </div>
-    </div>
+    </li>
   );
 }
 
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 12;
-  const closeHour = 22;
-  console.log(hour);
-  if (hour >= openHour && hour <= closeHour) {
-    return (
-      <footer className="footer">
-        {new Date().toLocaleTimeString()}.We're currently open.😜
-      </footer>
-    );
-  } else {
-  }
+  const closeHour = 24;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  return (
+    <footer className="footer">
+      {isOpen && (
+        <div className="order">
+          <p>We're open until {closeHour}:00.Come visit us or order online.</p>
+          <button className="btn">Order</button>
+        </div>
+      )}
+    </footer>
+  );
 }
 
 //React v-18
