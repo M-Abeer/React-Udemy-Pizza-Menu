@@ -94,27 +94,6 @@ function Menu() {
         img="pizzas/prosciutto.jpg"
         sold="false"
       />
-      <Pizza
-        name="Pizza Prosciutto"
-        ing="Tomato, mozarella, ham, aragula, and burrata cheese"
-        price="18"
-        img="pizzas/prosciutto.jpg"
-        sold="false"
-      />
-      <Pizza
-        name="Pizza Prosciutto"
-        ing="Tomato, mozarella, ham, aragula, and burrata cheese"
-        price="18"
-        img="pizzas/prosciutto.jpg"
-        sold="false"
-      />
-      <Pizza
-        name="Pizza Prosciutto"
-        ing="Tomato, mozarella, ham, aragula, and burrata cheese"
-        price="18"
-        img="pizzas/prosciutto.jpg"
-        sold="false"
-      />
     </main>
   );
 }
