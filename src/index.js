@@ -116,7 +116,7 @@ function Pizza({ img, sold, name, ing, price }) {
   // if (sold) return null;
 
   return (
-    <li className="pizza">
+    <li className={`pizza ${sold ? "sold-out" : ""}`}>
       <img src={img} alt="Error" />
       <div>
         <h3>{name}</h3>
